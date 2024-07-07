@@ -1,0 +1,18 @@
+[Unit]
+Description=Gunicorn Daemon for FastAPI Demo Application
+After=network.target
+
+
+
+[Service]
+
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/work/tsum_v2
+
+ExecStart=/home/ubuntu/work/tsum_v2/venv/bin/gunicorn -c /home/ubuntu/work/tsum_v2/gunicorn/tsum_gunicorn_conf.py main:app
+
+
+
+[Install]
+WantedBy=multi-user.target
