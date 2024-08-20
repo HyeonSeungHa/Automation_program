@@ -15,6 +15,8 @@
 - 기존 Flask로 개발되어있던 프로그램을 FastAPI로 변경
 - 앞단에 Nginx를 추가하여 트래픽 분배
 - Redis를 이용하여 요청을 저장
-- 현재 Worker의 상태를 체크하는 큐(Status_Queue), 요청을 처리하는 큐(Worker_Queue_Num)로 구분
 - Celery를 이용하여 요청을 병렬처리
-- 로드밸런싱 작업 추가
+- 현재 Worker의 상태를 체크하는 큐(Status_Queue), 요청을 처리하는 큐(Worker_Queue_Num)로 구분
+    - ~~Worker큐에 요청을 할당 시 현재 동작중인 Worker를 확인하여 처리해야될 요청이 적은 Worker큐로 작업을 할당~~
+    - Worker큐에 요청을 할당 시 현재 동작중인 Worker를 확인 후 라운드 로빈 방식으로 작업을 할당하여 Worker큐의 오버로드를 방지
+
